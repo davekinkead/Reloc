@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Reloc::VERSION
   gem.authors       = ["Dave Kinkead"]
   gem.email         = ["dave@kinkead.com.au"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Create easy to read, hard to guess, domain specific unique IDs}
+  gem.summary       = %q{A super simple way to generate easy to read, hard to guess, domain specific unique IDs.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
