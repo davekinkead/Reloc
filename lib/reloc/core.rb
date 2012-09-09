@@ -11,14 +11,18 @@ module Reloc
   }
   ALPH = (('0'..'9').to_a + ('a'..'z').to_a).join.split( // )
 
+
   # Public: Generate a random ordering of an alphanumeric-bet
   #
   # domain    - A domain to create unique IDs for
   #
-  # Example
+  # Examples
   #
   #   Reloc.salt
   #   # =>  'z2y54c8pnwrl63o17hxmbtauqegd0vfi9ksj'
+  #
+  #   Reloc.salt( 'some-domain' )
+  #   # =>  'dfs7k0eqt6j2mvir3wogn81p9yczuhx5b4al'
   #
   # Returns a random ordering of an alpha-num-bet
   def self.salt( domain=nil )
@@ -38,11 +42,18 @@ module Reloc
     salt.join
   end
 
+
   # Public: Sets configuration variables
   #
   # min_chars - The minimum characters to generate in a reloc
   #
   # Example
+  #
+  #   Reloc.config( {:min_chars => 3} )
+  #   # =>  { :min_chars => 3,
+  #           :domain => nil,
+  #           :salts => { nil => '5it68qhmyrc13jzxelgfdasuv04npo97b2wk' }
+  #         }
   #
   # Returns the current config variables
   def self.config( env={} )
@@ -50,15 +61,19 @@ module Reloc
     @@env
   end
 
+
   # Public: Generate a unique reloc for some integer + domain pair
   #
   # num       - The integer to be encoded
   # domain    - The domain constraint on uniqueness
   #
-  # Example
+  # Examples
+  #
+  #   Reloc.generate( 123456 )
+  #   # =>  '7bmgk'
   #
   #   Reloc.generate( 123456, 'some domain' )
-  #   # =>  ''
+  #   # =>  '8fgqb'
   #
   #  Returns the encoded integer or nil on error
   def self.generate( num, domain=nil )
@@ -69,7 +84,7 @@ module Reloc
     salt = @@env[:salts][domain].split( // )
     incr = num % 36
     num += ( 36**(@@env[:min_chars] - 1) )
-    b36 = num.to_s(36).split(//)
+    b36 = num.to_s(36).split( // )
     res = []
     b36.each do |s|
       res << salt[( ALPH.index( s ) + incr * 2 ) % 36]

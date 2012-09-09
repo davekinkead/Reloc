@@ -34,7 +34,7 @@ And configure the minimum ID length (default is 5 characters)
 	Reloc.generate( 12345 )
 	#	=>	"8z7"	
 
-Hook it up to Redis and you've got your own URL shortener in just a few lines of code
+Hook it up to [Redis][redis] and you've got your own URL shortener in just a few lines of code
 
 	require 'redis'
 	require 'reloc'
@@ -58,3 +58,5 @@ Hook it up to Redis and you've got your own URL shortener in just a few lines of
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+[redis]:http://redis.io/

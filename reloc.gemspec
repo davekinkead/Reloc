@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["dave@kinkead.com.au"]
   gem.description   = %q{Create easy to read, hard to guess, domain specific unique IDs}
   gem.summary       = %q{A super simple way to generate easy to read, hard to guess, domain specific unique IDs.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/davekinkead/Reloc"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

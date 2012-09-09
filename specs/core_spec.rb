@@ -92,8 +92,6 @@ describe 'Reloc' do
       two = Reloc.generate( 12345, 'some-domain' )
       config[:salts].has_key?( 'some-domain' ).must_equal true
       one.wont_equal two
-      puts Reloc.generate( 1 )
-
     end
   end
 end
